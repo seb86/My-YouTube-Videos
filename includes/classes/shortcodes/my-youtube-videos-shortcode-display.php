@@ -83,7 +83,7 @@ class My_YouTube_Videos_Shortcode_Display {
 		//if ( isset( $atts['multiply_cache_time'] ) ) $multiply_cache_time = $atts['multiply_cache_time'];
 
 		// The name of the transient we are storing the feed data in.
-		$transient_name = 'my_youtube_channel_' . $amount . '_' . $name;
+		$transient_name = 'my_youtube_channel_' . $name . '_' . $amount;
 		//if ( isset( $atts['time_to_cache'] ) )       $transient_name .= '_' . $time_to_cache;
 		//if ( isset( $atts['multiply_cache_time'] ) ) $transient_name .= '_' . $multiply_cache_time;
 
@@ -128,8 +128,8 @@ class My_YouTube_Videos_Shortcode_Display {
 		// Default Values
 		$playlist_ID         = get_option( 'my_youtube_videos_playlist_id' );
 		$amount              = get_option( 'my_youtube_videos_display_how_many' );
-		//$time_to_cache       = get_option( 'my_youtube_videos_time_to_cache_feed' );
-		//$multiply_cache_time = get_option( 'my_youtube_videos_multiply_cache' );
+		$time_to_cache       = get_option( 'my_youtube_videos_time_to_cache_feed' );
+		$multiply_cache_time = get_option( 'my_youtube_videos_multiply_cache' );
 
 		// If shortcode attributes exist, then override default.
 		if ( isset( $atts['amount'] ) )              $amount = $atts['amount'];
@@ -138,7 +138,7 @@ class My_YouTube_Videos_Shortcode_Display {
 		//if ( isset( $atts['multiply_cache_time'] ) ) $multiply_cache_time = $atts['multiply_cache_time'];
 
 		// The name of the transient we are storing the feed data in.
-		$transient_name = 'my_youtube_playlist_' . $amount . '_' . $playlist_ID;
+		$transient_name = 'my_youtube_plist_' . $amount . '_' . $playlist_ID;
 		//if ( isset( $atts['time_to_cache'] ) )       $transient_name .= '_' . $time_to_cache;
 		//if ( isset( $atts['multiply_cache_time'] ) ) $transient_name .= '_' . $multiply_cache_time;
 
@@ -198,6 +198,7 @@ class My_YouTube_Videos_Shortcode_Display {
 
 				// Load the saved results.
 				$data = self::load_feed_data( $transient_name );
+				//print_r($data);
 
 				// Get only the list of videos from the playlist.
 				$videos = $data['items'];
