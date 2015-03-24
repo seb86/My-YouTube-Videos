@@ -1,0 +1,451 @@
+# WordPress Plugin Boilerplate Copyright (c) {2014}
+msgid ""
+msgstr ""
+"Project-Id-Version: My YouTube Videos 2.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/seb86/WordPress-Plugin-Boilerplate/"
+"issues\n"
+"POT-Creation-Date: 2015-03-24 01:12+0100\n"
+"PO-Revision-Date: 2015-03-24 01:13+0100\n"
+"Last-Translator: WordPress Plugin Boilerplate <mailme@sebastiendumont.com>\n"
+"Language-Team: WP-Translations <wpt@wp-translations.org>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:48
+#: includes/admin/class-my-youtube-videos-admin.php:78
+#: includes/admin/views/html-admin-page.php:11 my_youtube_videos.php:307
+msgid "Documentation"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:50
+#, php-format
+msgid ""
+"Thank you for using <strong>%s</strong> :) Should you need help using or "
+"extending %s please read the documentation."
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:51
+#, php-format
+msgid "%s Documentation"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:56
+#: my_youtube_videos.php:283
+msgid "Support"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:58
+#, php-format
+msgid ""
+"After <a href=\"%s\">reading the documentation</a>, for further assistance "
+"you can use the <a href=\"%s\">community forum</a>."
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:59
+msgid "Community Support"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:64
+msgid "Found a bug?"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:66
+#, php-format
+msgid ""
+"If you find a bug within <strong>%s</strong> you can create a ticket via <a "
+"href=\"%s\">Github issues</a>. Ensure you read the <a href=\"%s"
+"\">contribution guide</a> prior to submitting your report. Be as descriptive "
+"as possible. Thank you."
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:67
+msgid "Report a bug"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:71
+msgid "For more information:"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:72
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:73
+msgid "Plugin on WordPress.org"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-help.php:74
+msgid "Plugin on Github"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-settings.php:64
+msgid "Action failed. Please refresh the page and retry."
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-settings.php:72
+msgid "Your settings have been saved."
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-settings.php:144
+#: my_youtube_videos.php:581
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-settings.php:489
+msgid "Hard Crop?"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin-settings.php:511
+msgid "Select a page&hellip;"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin.php:77
+#: includes/admin/views/html-admin-page.php:10
+msgid "Website"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin.php:95
+#, php-format
+msgid ""
+"If you like <strong>%1$s</strong> please leave a <a href=\"%2$s\" target="
+"\"_blank\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating on <a href=\"%2$s"
+"\" target=\"_blank\">WordPress.org</a>. A huge thank you in advance!"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin.php:125
+msgid "Contribute"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin.php:126
+msgid "Report Bugs"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-admin.php:135
+#, php-format
+msgid "%s Version"
+msgstr ""
+
+#: includes/admin/class-my-youtube-videos-install.php:181
+msgid "What's new:"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:30
+msgid "Appearance"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:63
+msgid "Appearance Settings"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:65
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:65
+msgid ""
+"These settings will be the default settings for the shortcodes and widgets."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:70
+msgid "Thumbnail Size"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:71
+msgid "Select the size of the video thumbnail you want to display."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:78
+#: includes/admin/views/html-admin-page.php:23
+msgid "Default"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:79
+msgid "Medium"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:80
+msgid "High"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:81
+msgid "Standard"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:87
+msgid "List Container"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:88
+msgid "Enter the class name of the list container."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:97
+msgid "Before Video Thumbnail"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:108
+msgid "After Video Thumbnail"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:119
+msgid "Video Title Prefix"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:130
+msgid "Video Title Affix"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:141
+msgid "Open Videos in Pop-up?"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:142
+msgid ""
+"If yes, enable to view the videos in a pop-up display when a video is "
+"clicked on."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:149
+msgid "Open Videos in New Window?"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:150
+msgid "If yes, enable to view the video on YouTube.com in a new window."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:30
+msgid "General"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:63
+msgid "General Settings"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:70
+msgid "API Key"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:71
+#, php-format
+msgid ""
+"This is required for the videos to be fetched. See <a href=\"%s\" target="
+"\"_blank\">Getting Started with YouTube Data API</a>"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:80
+msgid "Username / Channel Name"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:90
+msgid "Display How Many"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:91
+msgid "Enter the amount of videos you wish to display."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:104
+msgid "Show Videos From"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:105
+msgid "Select where your videos will be displaying from."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:112
+msgid "Channel"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:114
+msgid "Playlist"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:120
+msgid "Playlist ID"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:121
+msgid "Enter the playlist ID for videos to be displayed."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:150
+msgid "Display Thumbails?"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:151
+msgid "If yes, enable to display the video thumbnail."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:158
+msgid "Display Titles?"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:159
+msgid "If yes, enable to display the video titles."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:166
+msgid "Display Date Uploaded?"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:167
+msgid "If yes, enable to display the date the video was uploaded on."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:182
+msgid "Time to Cache Feed"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:183
+msgid ""
+"Select how much time you wish to cache the data feed before it is fetched "
+"again."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:190
+msgid "By Minutes"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:191
+msgid "By Hours"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:192
+msgid "By Days"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:193
+msgid "By Weeks"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:199
+msgid "Multiply Time to Cache"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:200
+msgid "Enter a number you will be multiplying the cache above."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:213
+msgid "Remove all data on uninstall?"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-general.php:214
+msgid ""
+"If enabled, all settings for this plugin will all be deleted when "
+"uninstalling via Plugins > Delete."
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:24
+msgid "Section Two"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:25
+msgid "Section Three"
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:44
+msgid ""
+"You can use this page to place the main back feature of your plugin. Place "
+"links at the end of your header and set the page into sections."
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:45
+msgid ""
+"These sections can then display different content based on the section the "
+"user is viewing."
+msgstr ""
+
+#: includes/admin/views/html-admin-page.php:46
+msgid ""
+"There are many actions and filters in place to allow you to add and display "
+"anything you need."
+msgstr ""
+
+#: includes/admin/views/html-admin-settings.php:25
+msgid "Save changes"
+msgstr ""
+
+#: includes/admin/views/html-notice-update.php:5
+#, php-format
+msgid ""
+"<strong>%s Data Update Required</strong> &#8211; I just need to update you "
+"to the latest version."
+msgstr ""
+
+#: includes/admin/views/html-notice-update.php:6
+msgid "Run the updater"
+msgstr ""
+
+#: includes/admin/views/html-notice-update.php:10
+msgid ""
+"It is strongly recommended that you backup your database before proceeding. "
+"Are you sure you wish to run the updater now?"
+msgstr ""
+
+#: includes/classes/shortcodes/my-youtube-videos-shortcode-display.php:206
+msgid "Uploaded On"
+msgstr ""
+
+#: includes/widgets/old-widget.php:78
+msgid "My Latest Videos on <span>YouTube<span>"
+msgstr ""
+
+#: includes/widgets/old-widget.php:110
+msgid "Title:"
+msgstr ""
+
+#: includes/widgets/old-widget.php:112
+msgid "Username:"
+msgstr ""
+
+#: includes/widgets/old-widget.php:113
+msgid "Number of Videos:"
+msgstr ""
+
+#: includes/widgets/old-widget.php:120
+msgid "Display Thumbnail:"
+msgstr ""
+
+#: includes/widgets/old-widget.php:122 includes/widgets/old-widget.php:127
+#: includes/widgets/old-widget.php:133
+msgid "Yes"
+msgstr ""
+
+#: includes/widgets/old-widget.php:123 includes/widgets/old-widget.php:128
+#: includes/widgets/old-widget.php:134
+msgid "No"
+msgstr ""
+
+#: includes/widgets/old-widget.php:125
+msgid "Display Date Added:"
+msgstr ""
+
+#: includes/widgets/old-widget.php:131
+msgid "HD Videos:"
+msgstr ""
+
+#: my_youtube_videos.php:223 my_youtube_videos.php:235
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: my_youtube_videos.php:282
+msgid "Settings"
+msgstr ""
+
+#: my_youtube_videos.php:391
+#, php-format
+msgid "Sorry, %s requires WordPress "
+msgstr ""
+
+#: my_youtube_videos.php:579
+msgid "No results"
+msgstr ""
