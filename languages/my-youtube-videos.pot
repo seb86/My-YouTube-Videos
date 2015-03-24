@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: My YouTube Videos 2.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/seb86/WordPress-Plugin-Boilerplate/"
 "issues\n"
-"POT-Creation-Date: 2015-03-24 01:12+0100\n"
-"PO-Revision-Date: 2015-03-24 01:13+0100\n"
+"POT-Creation-Date: 2015-03-24 15:14+0100\n"
+"PO-Revision-Date: 2015-03-24 15:14+0100\n"
 "Last-Translator: WordPress Plugin Boilerplate <mailme@sebastiendumont.com>\n"
 "Language-Team: WP-Translations <wpt@wp-translations.org>\n"
 "Language: en_US\n"
@@ -188,36 +188,44 @@ msgid "Enter the class name of the list container."
 msgstr ""
 
 #: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:97
+msgid "List Item"
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:98
+msgid "Enter the class name that will be applied to each list item."
+msgstr ""
+
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:107
 msgid "Before Video Thumbnail"
 msgstr ""
 
-#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:108
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:118
 msgid "After Video Thumbnail"
 msgstr ""
 
-#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:119
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:129
 msgid "Video Title Prefix"
 msgstr ""
 
-#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:130
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:140
 msgid "Video Title Affix"
 msgstr ""
 
-#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:141
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:151
 msgid "Open Videos in Pop-up?"
 msgstr ""
 
-#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:142
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:152
 msgid ""
 "If yes, enable to view the videos in a pop-up display when a video is "
 "clicked on."
 msgstr ""
 
-#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:149
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:159
 msgid "Open Videos in New Window?"
 msgstr ""
 
-#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:150
+#: includes/admin/settings/class-my-youtube-videos-settings-appearance.php:160
 msgid "If yes, enable to view the video on YouTube.com in a new window."
 msgstr ""
 
@@ -391,7 +399,7 @@ msgid ""
 "Are you sure you wish to run the updater now?"
 msgstr ""
 
-#: includes/classes/shortcodes/my-youtube-videos-shortcode-display.php:206
+#: includes/classes/shortcodes/my-youtube-videos-shortcode-display.php:240
 msgid "Uploaded On"
 msgstr ""
 

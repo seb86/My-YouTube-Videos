@@ -183,6 +183,7 @@ class My_YouTube_Videos_Shortcode_Display {
 		$show_date      = get_option( 'my_youtube_videos_display_date_uploaded' );
 		$thumb_size     = get_option( 'my_youtube_videos_thumbnail_size' );
 		$list_container = get_option( 'my_youtube_videos_list_container' );
+		$list_item      = get_option( 'my_youtube_videos_list_item' );
 		$prefix_title   = get_option( 'my_youtube_videos_title_prefix' );
 		$affix_title    = get_option( 'my_youtube_videos_title_affix' );
 		$new_window     = get_option( 'my_youtube_videos_open_new_window' );
@@ -205,9 +206,22 @@ class My_YouTube_Videos_Shortcode_Display {
 
 				// Display each video.
 				foreach ( $videos as $video ) {
-					echo '<li' . apply_filters( 'my_youtube_videos_item_data', ' data-etag="' . $video['etag'] . '" data-id="' . $video['id'] . '"' ) . '>';
+					echo '<li';
+					if ( ! empty( $list_item ) ) echo ' class="' . $list_item . '"' ;
+					echo apply_filters( 'my_youtube_videos_item_data', ' data-etag="' . $video['etag'] . '" data-id="' . $video['id'] . '"' );
+					echo '>';
 
-					if ( $show_date == 'yes' ) echo '<span>' . __( 'Uploaded On', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ) . ': ' .$video['snippet']['publishedAt'] . '</span>';
+					if ( $show_thumbs == 'yes' ) {
+						echo html_entity_decode( get_option( 'my_youtube_videos_before_video_thumb' ) );
+
+						echo '<a href="https://www.youtube.com/watch?v=' . $video['snippet']['resourceId']['videoId'] . '"';
+						if ( $new_window == 'yes' ) echo ' target="_blank"';
+						echo '>';
+						echo '<img src="' . $video['snippet']['thumbnails'][$thumb_size]['url'] . '" alt="' . $video['description'] . '" />';
+						echo '</a>';
+
+						echo html_entity_decode( get_option( 'my_youtube_videos_after_video_thumb' ) );
+					}
 
 					if ( $show_title == 'yes' ) {
 						echo html_entity_decode( $prefix_title );
@@ -223,17 +237,7 @@ class My_YouTube_Videos_Shortcode_Display {
 						echo '</a>';
 					}
 
-					if ( $show_thumbs == 'yes' ) {
-						echo html_entity_decode( get_option( 'my_youtube_videos_before_video_thumb' ) );
-
-						echo '<a href="https://www.youtube.com/watch?v=' . $video['snippet']['resourceId']['videoId'] . '"';
-						if ( $new_window == 'yes' ) echo ' target="_blank"';
-						echo '>';
-						echo '<img src="' . $video['snippet']['thumbnails'][$thumb_size]['url'] . '" alt="" />';
-						echo '</a>';
-
-						echo html_entity_decode( get_option( 'my_youtube_videos_after_video_thumb' ) );
-					}
+					if ( $show_date == 'yes' ) echo '<span>' . __( 'Uploaded On', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ) . ': ' .$video['snippet']['publishedAt'] . '</span>';
 
 					echo '</li>';
 				}

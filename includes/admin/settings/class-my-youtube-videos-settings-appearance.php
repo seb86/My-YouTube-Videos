@@ -94,6 +94,16 @@ class My_YouTube_Videos_Settings_Appearance_Tab extends My_YouTube_Videos_Settin
 			),
 
 			array(
+				'title'    => __( 'List Item', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+				'desc'     => __( 'Enter the class name that will be applied to each list item.', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+				'id'       => 'my_youtube_videos_list_item',
+				'default'  => '',
+				'type'     => 'text',
+				'css'      => 'min-width:300px;',
+				'autoload' => false
+			),
+
+			array(
 				'title'    => __( 'Before Video Thumbnail', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
 				'desc'     => '',
 				'id'       => 'my_youtube_videos_before_video_thumb',
