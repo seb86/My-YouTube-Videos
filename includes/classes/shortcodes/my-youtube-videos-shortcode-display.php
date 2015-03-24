@@ -71,24 +71,26 @@ class My_YouTube_Videos_Shortcode_Display {
 		$api_key             = get_option( 'my_youtube_videos_api_key' );
 
 		// Default Values
-		$amount              = get_option( 'my_youtube_videos_display_how_many' );
 		$name                = get_option( 'my_youtube_videos_name' );
+		$amount              = get_option( 'my_youtube_videos_display_how_many' );
 		$time_to_cache       = get_option( 'my_youtube_videos_time_to_cache_feed' );
 		$multiply_cache_time = get_option( 'my_youtube_videos_multiply_cache' );
 
 		// If shortcode attributes exist, then override default.
-		if ( isset( $atts['name'] ) )                 $name = $atts['name'];
-		if ( isset( $atts['amount'] ) )               $amount = $atts['amount'];
-		if ( isset( $atts['time_to_cache'] ) )        $time_to_cache = $atts['time_to_cache'];
-		if ( isset( $atts['multimply_cache_time'] ) ) $multimply_cache_time = $atts['multimply_cache_time'];
+		if ( isset( $atts['name'] ) )                $name = $atts['name'];
+		if ( isset( $atts['amount'] ) )              $amount = $atts['amount'];
+		if ( isset( $atts['time_to_cache'] ) )       $time_to_cache = $atts['time_to_cache'];
+		if ( isset( $atts['multiply_cache_time'] ) ) $multiply_cache_time = $atts['multiply_cache_time'];
 
 		// The name of the transient we are storing the feed data in.
 		$transient_name = 'my_youtube_videos_display_channel_' . $amount . '_' . $name;
+		if ( isset( $atts['time_to_cache'] ) )       $transient_name .= '_' . $time_to_cache;
+		if ( isset( $atts['multiply_cache_time'] ) ) $transient_name .= '_' . $multiply_cache_time;
 
-		if ( false === ( $results = get_transient( $transient_name ) ) ) {
+		if ( self::load_feed_data( $transient_name ) === false ) {
 
 			// Feed URL
-			$feed     = 'https://www.googleapis.com/youtube/v3/channels?forUsername=' . $name . '&part=snippet,contentDetails&maxResults=' . $amount . '&key=' . $api_key;
+			$feed = 'https://www.googleapis.com/youtube/v3/channels?forUsername=' . $name . '&part=snippet,contentDetails&maxResults=' . $amount . '&key=' . $api_key;
 
 			// Fetch data
 			$response = wp_remote_get( $feed, array( 'timeout' => 120 ) );
@@ -124,25 +126,27 @@ class My_YouTube_Videos_Shortcode_Display {
 		$api_key             = get_option( 'my_youtube_videos_api_key' );
 
 		// Default Values
-		$amount              = get_option( 'my_youtube_videos_display_how_many' );
 		$playlist_ID         = get_option( 'my_youtube_videos_playlist_id' );
+		$amount              = get_option( 'my_youtube_videos_display_how_many' );
 		$time_to_cache       = get_option( 'my_youtube_videos_time_to_cache_feed' );
 		$multiply_cache_time = get_option( 'my_youtube_videos_multiply_cache' );
 
 		// If shortcode attributes exist, then override default.
-		if ( isset( $atts['amount'] ) )               $amount = $atts['amount'];
-		if ( isset( $atts['playlist_id'] ) )          $playlist_ID = $atts['playlist_id'];
-		if ( isset( $atts['time_to_cache'] ) )        $time_to_cache = $atts['time_to_cache'];
-		if ( isset( $atts['multimply_cache_time'] ) ) $multimply_cache_time = $atts['multimply_cache_time'];
+		if ( isset( $atts['amount'] ) )              $amount = $atts['amount'];
+		if ( isset( $atts['playlist_id'] ) )         $playlist_ID = $atts['playlist_id'];
+		if ( isset( $atts['time_to_cache'] ) )       $time_to_cache = $atts['time_to_cache'];
+		if ( isset( $atts['multiply_cache_time'] ) ) $multiply_cache_time = $atts['multiply_cache_time'];
 
 		// The name of the transient we are storing the feed data in.
 		$transient_name = 'my_youtube_videos_display_playlist_' . $amount . '_' . $playlist_ID;
+		if ( isset( $atts['time_to_cache'] ) )       $transient_name .= '_' . $time_to_cache;
+		if ( isset( $atts['multiply_cache_time'] ) ) $transient_name .= '_' . $multiply_cache_time;
 
 		// Check that the data is not already available.
-		if ( !get_transient( $transient_name ) ) {
+		if ( self::load_feed_data( $transient_name ) === false ) {
 
 			// Feed URL
-			$feed     = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=' . $amount . '&playlistId=' . $playlist_ID . '&key=' . $api_key;
+			$feed = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=' . $amount . '&playlistId=' . $playlist_ID . '&key=' . $api_key;
 
 			// Fetch data
 			$response = wp_remote_get( $feed, array( 'timeout' => 120 ) );
@@ -161,7 +165,7 @@ class My_YouTube_Videos_Shortcode_Display {
 
 			// Save Data
 			set_transient( $transient_name, $data, $multiply_cache_time * constant( $time_to_cache ) );
-		}
+		} // end if
 
 		// Display the videos
 		self::display_videos( 'playlist', $transient_name );
@@ -193,7 +197,7 @@ class My_YouTube_Videos_Shortcode_Display {
 			case 'playlist' :
 
 				// Load the saved results.
-				$data = get_transient( $transient_name );
+				$data = self::load_feed_data( $transient_name );
 				//print_r( $data );
 
 				// Get only the list of videos from the playlist.
@@ -237,7 +241,7 @@ class My_YouTube_Videos_Shortcode_Display {
 			break;
 
 			case 'channel' :
-				echo 'Need to do this next';
+				//echo 'Need to do this next';
 			break;
 		}
 
@@ -245,6 +249,10 @@ class My_YouTube_Videos_Shortcode_Display {
 
 		do_action( 'my_youtube_videos_after_display' );
 	} // END display_videos()
+
+	public function load_feed_data( $value ) {
+		return get_transient( $value );
+	}
 
 }
 
