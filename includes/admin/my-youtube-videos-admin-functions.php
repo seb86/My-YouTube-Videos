@@ -19,18 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @return array
  */
 function my_youtube_videos_get_screen_ids() {
-	$menu_name = strtolower( str_replace ( ' ', '-', My_YouTube_Videos()->menu_name ) );
-
 	$my_youtube_videos_screen_id = MY_YOUTUBE_VIDEOS_SCREEN_ID;
 
-	return apply_filters( 'my_youtube_videos_screen_ids', array(
-		'toplevel_page_' . $my_youtube_videos_screen_id,
-		$my_youtube_videos_screen_id . '_page_' . $my_youtube_videos_screen_id . '_settings',
-		$my_youtube_videos_screen_id . '_page_' . $my_youtube_videos_screen_id . '-settings',
-		$menu_name . '_page_' . $my_youtube_videos_screen_id . '_settings',
-		$menu_name . '_page_' . $my_youtube_videos_screen_id . '-settings',
-		'settings_page_' . $my_youtube_videos_screen_id . '-settings',
-	) );
+	return array( 'settings_page_' . $my_youtube_videos_screen_id . '-settings' );
 } // END my_youtube_videos_get_screen_ids()
 
 /**

@@ -67,7 +67,7 @@ class My_YouTube_Videos_Settings_General_Tab extends My_YouTube_Videos_Settings_
 			),
 
 			array(
-				'title'    => __( 'API Key', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ) . '*',
+				'title'    => __( 'API Key', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ) . ' *',
 				'desc'     => sprintf( __( 'This is required for the videos to be fetched. See <a href="%s" target="_blank">Getting Started with YouTube Data API</a>', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ), 'https://developers.google.com/youtube/v3/getting-started' ),
 				'id'       => 'my_youtube_videos_api_key',
 				'default'  => '',
@@ -77,13 +77,40 @@ class My_YouTube_Videos_Settings_General_Tab extends My_YouTube_Videos_Settings_
 			),
 
 			array(
-				'title'    => __( 'Username / Channel Name', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ) . '*',
-				'desc'     => '',
+				'title'    => __( 'Channel Name or ID', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ) . ' ',
+				'desc'     => sprintf( __( 'See "<a href="%s" target="_blank">Account Advanced</a>" on YouTube.com for details.', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ), 'https://www.youtube.com/account_advanced' ),
 				'id'       => 'my_youtube_videos_name',
 				'default'  => '',
 				'type'     => 'text',
-				'css'      => 'min-width:300px;',
+				'css'      => 'min-width:340px;',
 				'autoload' => false
+			),
+
+			/*array(
+				'title'    => __( 'Show Videos From', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+				'desc'     => __( 'Select where your videos will be displaying from.', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+				'id'       => 'my_youtube_videos_display_from',
+				'class'    => 'chosen_select',
+				'css'      => 'min-width:150px;',
+				'default'  => 'channels',
+				'type'     => 'select',
+				'options'  => array(
+					'channels'      => __( 'Channel', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+					//'most_viewed' => __( 'Most Viewed', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+					'playlistItems'    => __( 'Playlist', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+				),
+				'desc_tip' => true,
+			),*/
+
+			array(
+				'title'    => __( 'Playlist ID', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ) . ' *',
+				'desc'     => __( 'Enter the main playlist ID you want to display videos from.', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+				'id'       => 'my_youtube_videos_playlist_id',
+				'default'  => '',
+				'type'     => 'text',
+				'css'      => 'min-width:340px;',
+				'autoload' => false,
+				'desc_tip' => true
 			),
 
 			array(
@@ -98,33 +125,6 @@ class My_YouTube_Videos_Settings_General_Tab extends My_YouTube_Videos_Settings_
 				'css'               => 'width:50px;',
 				'default'           => '5',
 				'autoload'          => false
-			),
-
-			array(
-				'title'    => __( 'Show Videos From', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
-				'desc'     => __( 'Select where your videos will be displaying from.', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
-				'id'       => 'my_youtube_videos_display_from',
-				'class'    => 'chosen_select',
-				'css'      => 'min-width:150px;',
-				'default'  => 'channels',
-				'type'     => 'select',
-				'options'  => array(
-					'channels'      => __( 'Channel', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
-					//'most_viewed' => __( 'Most Viewed', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
-					'playlistItems'    => __( 'Playlist', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
-				),
-				'desc_tip' => true,
-			),
-
-			array(
-				'title'    => __( 'Playlist ID', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ) . '*',
-				'desc'     => __( 'Enter the playlist ID for videos to be displayed.', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
-				'id'       => 'my_youtube_videos_playlist_id',
-				'default'  => '',
-				'type'     => 'text',
-				'css'      => 'min-width:300px;',
-				'autoload' => false,
-				'desc_tip' => true
 			),
 
 			/*array(
@@ -196,7 +196,7 @@ class My_YouTube_Videos_Settings_General_Tab extends My_YouTube_Videos_Settings_
 			),
 
 			array(
-				'title'             => __( 'Multiply Time to Cache', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+				'title'             => __( 'Multiple Time to Cache', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
 				'desc'              => __( 'Enter a number you will be multiplying the cache above.', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
 				'id'                => 'my_youtube_videos_multiply_cache',
 				'type'              => 'number',

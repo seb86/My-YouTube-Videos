@@ -24,7 +24,6 @@ class My_YouTube_Videos_Admin {
 	public function __construct() {
 		// Actions
 		add_action( 'init',              array( $this, 'includes' ) );
-		add_action( 'admin_footer', 'my_youtube_videos_print_js', 25 );
 
 		// Filters
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );

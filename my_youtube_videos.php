@@ -3,7 +3,7 @@
  * Plugin Name:       My YouTube Videos
  * Plugin URI:        https://github.com/seb86/My-YouTube-Videos
  * Description:       Displays your latest uploaded videos from your YouTube account on a full page or in your sidebar using the widget.
- * Version:           2.0.0
+ * Version:           2.0.0 Beta 2
  * Author:            Sébastien Dumont
  * Author URI:        http://www.sebastiendumont.com
  * License:           GPL-2.0+
@@ -177,20 +177,6 @@ final class My_YouTube_Videos {
 	public $manage_plugin = "manage_options";
 
 	/**
-	 * Display single submenu link to the settings page
-	 * or provide a submenu link for each settings tab.
-	 *
-	 * If value is empty or 'no' then just a single submenu
-	 * will be available. If value is 'yes' then each settings
-	 * tab will have it's own submenu link for quicker access.
-	 *
-	 * @since  2.0.0
-	 * @access public
-	 * @var    string
-	 */
-	public $full_settings_menu = "no";
-
-	/**
 	 * Main My YouTube Videos Instance
 	 *
 	 * Ensures only one instance of My YouTube Videos is loaded or can be loaded.
@@ -262,7 +248,6 @@ final class My_YouTube_Videos {
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
 		add_filter( 'plugin_row_meta',                                    array( $this, 'plugin_row_meta' ), 10, 2 );
 		add_action( 'init',                                               array( $this, 'init_my_youtube_videos' ), 0 );
-
 
 		// Loaded action
 		do_action( 'my_youtube_videos_loaded' );
@@ -348,17 +333,15 @@ final class My_YouTube_Videos {
 		if ( ! defined( 'MY_YOUTUBE_VIDEOS_FILE' ) )                  define( 'MY_YOUTUBE_VIDEOS_FILE', __FILE__ );
 		if ( ! defined( 'MY_YOUTUBE_VIDEOS_VERSION' ) )               define( 'MY_YOUTUBE_VIDEOS_VERSION', $this->version );
 		if ( ! defined( 'MY_YOUTUBE_VIDEOS_WP_VERSION_REQUIRE' ) )    define( 'MY_YOUTUBE_VIDEOS_WP_VERSION_REQUIRE', $this->wp_version_min );
-		if ( ! defined( 'MY_YOUTUBE_VIDEOS_MENU_NAME' ) )             define( 'MY_YOUTUBE_VIDEOS_MENU_NAME', strtolower( str_replace( ' ', '-', $this->menu_name ) ) );
 		if ( ! defined( 'MY_YOUTUBE_VIDEOS_PAGE' ) )                  define( 'MY_YOUTUBE_VIDEOS_PAGE', str_replace('_', '-', $this->plugin_slug) );
 		if ( ! defined( 'MY_YOUTUBE_VIDEOS_SCREEN_ID' ) )             define( 'MY_YOUTUBE_VIDEOS_SCREEN_ID', strtolower( str_replace( ' ', '-', MY_YOUTUBE_VIDEOS_PAGE ) ) );
 		if ( ! defined( 'MY_YOUTUBE_VIDEOS_SLUG' ) )                  define( 'MY_YOUTUBE_VIDEOS_SLUG', $this->plugin_slug );
 		if ( ! defined( 'MY_YOUTUBE_VIDEOS_TEXT_DOMAIN' ) )           define( 'MY_YOUTUBE_VIDEOS_TEXT_DOMAIN', $this->text_domain );
 		if ( ! defined( 'MY_YOUTUBE_VIDEOS_DEFAULT_SETTINGS_TAB' ) )  define( 'MY_YOUTUBE_VIDEOS_DEFAULT_SETTINGS_TAB', 'general');
-		if ( ! defined( 'MY_YOUTUBE_VIDEOS_README_FILE' ) )           define( 'MY_YOUTUBE_VIDEOS_README_FILE', 'http://plugins.svn.wordpress.org/my-youtube-videos/trunk/readme.txt' );
 		if ( ! defined( 'MY_YOUTUBE_VIDEOS_GITHUB_REPO_URI' ) )       define( 'MY_YOUTUBE_VIDEOS_GITHUB_REPO_URI', $this->github_repo_url );
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		define( 'MY_YOUTUBE_VIDEOS_SCRIPT_MODE', $suffix );
+		if ( ! defined( 'MY_YOUTUBE_VIDEOS_SCRIPT_MODE' ) )           define( 'MY_YOUTUBE_VIDEOS_SCRIPT_MODE', $suffix );
 	} // END define_constants()
 
 	/**
@@ -402,12 +385,11 @@ final class My_YouTube_Videos {
 	public function includes() {
 		include_once( 'includes/my-youtube-videos-core-functions.php' ); // Contains core functions for the front/back end.
 
+		// Include Widgets
+		$this->include_widgets();
+
 		if ( is_admin() ) {
 			$this->admin_includes();
-		}
-
-		if ( defined('DOING_AJAX') ) {
-			$this->ajax_includes();
 		}
 
 		if ( ! is_admin() || defined('DOING_AJAX') ) {
@@ -428,17 +410,6 @@ final class My_YouTube_Videos {
 	} // END admin_includes()
 
 	/**
-	 * Include required ajax files.
-	 *
-	 * @since  2.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function ajax_includes() {
-		include_once( 'includes/my-youtube-videos-ajax.php' ); // Ajax functions for admin and the front-end
-	} // END ajax_includes()
-
-	/**
 	 * Include required frontend files.
 	 *
 	 * @since  2.0.0
@@ -454,28 +425,28 @@ final class My_YouTube_Videos {
 	} // END frontend_includes()
 
 	/**
+	 * Include widgets.
+	 *
+	 * @since  2.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function include_widgets() {
+		include_once( 'includes/my-youtube-videos-widgets.php' ); // Includes the widgets listed and registers each one.
+	} // END include_widgets()
+
+	/**
 	 * Runs when the plugin is initialized.
 	 *
 	 * @since  2.0.0
 	 * @access public
 	 */
 	public function init_my_youtube_videos() {
-		// Before init action
-		do_action( 'before_my_youtube_videos_init' );
-
 		// Set up localisation
 		$this->load_plugin_textdomain();
 
 		// Load JavaScript and stylesheets
 		$this->register_scripts_and_styles();
-
-		// This will run on the frontend and for ajax requests
-		if ( ! is_admin() || defined( 'DOING_AJAX' ) && ! defined( 'DOING_CRON' ) ) {
-			//$this->shortcodes = new My_YouTube_Videos_Shortcodes(); // Shortcodes class, controls all frontend shortcodes
-		}
-
-		// Init action
-		do_action( 'my_youtube_videos_init' );
 	} // END init_my_youtube_videos()
 
 	/**
@@ -553,13 +524,7 @@ final class My_YouTube_Videos {
 	private function register_scripts_and_styles() {
 		if ( is_admin() ) {
 			// Main Plugin Javascript
-			$this->load_file( $this->plugin_slug . '_admin_script', '/assets/js/admin/my-youtube-videos' . MY_YOUTUBE_VIDEOS_SCRIPT_MODE . '.js', true, array('jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip'), $this->version );
-
-			// Plugin Menu
-			$this->load_file( $this->plugin_slug . '_admin_menu_script', '/assets/js/admin/admin-menu.' . MY_YOUTUBE_VIDEOS_SCRIPT_MODE . '.js', true, array('jquery'), $this->version );
-
-			// Block UI
-			$this->load_file( 'jquery-blockui', '/assets/js/jquery-blockui/jquery.blockUI' . MY_YOUTUBE_VIDEOS_SCRIPT_MODE . '.js', true, array('jquery'), '2.60' );
+			$this->load_file( $this->plugin_slug . '_admin_script', '/assets/js/admin/my-youtube-videos' . MY_YOUTUBE_VIDEOS_SCRIPT_MODE . '.js', true, array('jquery', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip'), $this->version );
 
 			// TipTip
 			$this->load_file( 'jquery-tiptip', '/assets/js/jquery-tiptip/jquery.tipTip' . MY_YOUTUBE_VIDEOS_SCRIPT_MODE . '.js', true, array('jquery'), $this->version );
@@ -575,30 +540,13 @@ final class My_YouTube_Videos {
 
 			// Variables for Admin JavaScripts
 			wp_localize_script( $this->plugin_slug . '_admin_script', 'my_youtube_videos_admin_params', apply_filters( 'my_youtube_videos_admin_params', array(
-				'ajaxurl'            => admin_url('admin-ajax.php'),
-				'no_result'          => __( 'No results', 'my-youtube-videos' ),
 				'plugin_url'         => $this->plugin_url(),
 				'i18n_nav_warning'   => __( 'The changes you made will be lost if you navigate away from this page.', 'my-youtube-videos' ),
-				'full_settings_menu' => $this->full_settings_menu,
-				'plugin_menu_name'   => $this->menu_name,
-				'plugin_screen_id'   => MY_YOUTUBE_VIDEOS_SCREEN_ID,
 			) ) );
 
 			// Stylesheets
 			$this->load_file( $this->plugin_slug . '_admin_style', '/assets/css/admin/my-youtube-videos.css' );
-			$this->load_file( $this->plugin_slug . '_admin_menu_styles', '/assets/css/admin/menu.css' );
-		}
-		else {
-			$this->load_file( $this->plugin_slug . '-script', '/assets/js/frontend/my-youtube-videos' . MY_YOUTUBE_VIDEOS_SCRIPT_MODE . '.js', true );
-
-			// My YouTube Videos Stylesheet
-			$this->load_file( $this->plugin_slug . '-style', '/assets/css/my-youtube-videos.css' );
-
-			// Variables for JS scripts
-			wp_localize_script( $this->plugin_slug . '-script', 'my_youtube_videos_params', apply_filters( 'my_youtube_videos_params', array(
-				'plugin_url' => $this->plugin_url(),
-			) ) );
-		} // end if/else
+		} // END if is_admin()
 	} // END register_scripts_and_styles()
 
 	/**
@@ -629,12 +577,6 @@ final class My_YouTube_Videos {
 				wp_enqueue_style( $name );
 			} // end if
 		} // end if
-
-		wp_enqueue_style( 'wp-color-picker' );
-
-		if ( is_admin() && $wp_version >= '3.8' ) {
-			wp_enqueue_style( 'dashicons' ); // Loads only in WordPress 3.8 and up.
-		}
 
 	} // END load_file()
 } // END My_YouTube_Videos()

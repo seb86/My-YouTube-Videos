@@ -30,12 +30,12 @@ class My_YouTube_Videos_Shortcodes {
 	 * Shortcode Wrapper
 	 *
 	 * @since  2.0.0
-	 * @access public
-	 * @param  mixed $function
-	 * @param  array $atts (default: array())
+	 * @access public static
+	 * @param  mixed  $function
+	 * @param  array  $atts (default: array())
 	 * @return string
 	 */
-	public function shortcode_wrapper(
+	public static function shortcode_wrapper(
 		$function, 
 		$atts    = array(), 
 		$wrapper = array(
@@ -61,7 +61,7 @@ class My_YouTube_Videos_Shortcodes {
 	 *
 	 * @since  2.0.0
 	 * @access public
-	 * @param  mixed $atts
+	 * @param  mixed  $atts
 	 * @return string
 	 */
 	public static function list_videos( $atts ) {

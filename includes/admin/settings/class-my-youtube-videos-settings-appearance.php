@@ -62,7 +62,7 @@ class My_YouTube_Videos_Settings_Appearance_Tab extends My_YouTube_Videos_Settin
 			array(
 				'title' => __( 'Appearance Settings', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
 				'type'  => 'title',
-				'desc'  => __( 'These settings will be the default settings for the shortcodes and widgets.', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+				'desc'  => __( 'These settings affect the appearance of the videos.', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
 				'id'    => $this->id . '_options'
 			),
 
@@ -157,7 +157,7 @@ class My_YouTube_Videos_Settings_Appearance_Tab extends My_YouTube_Videos_Settin
 
 			array(
 				'title'    => __( 'Open Videos in New Window?', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
-				'desc'     => __( 'If yes, enable to view the video on YouTube.com in a new window.', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
+				'desc'     => __( 'If yes, enable to view the videos on YouTube.com in a new window. Note: Do NOT enable if pop-up option above is enabled!', MY_YOUTUBE_VIDEOS_TEXT_DOMAIN ),
 				'id'       => 'my_youtube_videos_open_new_window',
 				'default'  => 'no',
 				'type'     => 'checkbox'
