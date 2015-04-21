@@ -50,7 +50,7 @@ class My_YouTube_Videos_Admin_Notices {
 	 */
 	public function install_notice() {
 		// If we need to update, include a message with the update button.
-		if ( get_option( '_my_youtube_videos_needs_update' ) == 1 ) {
+		if ( current_user_can('install_plugins') && get_option( '_my_youtube_videos_needs_update' ) == 1 ) {
 			include( 'views/html-notice-update.php' );
 		}
 	} // END install_notice()
